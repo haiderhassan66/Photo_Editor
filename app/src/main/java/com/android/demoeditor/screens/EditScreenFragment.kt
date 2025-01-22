@@ -75,10 +75,9 @@ class EditScreenFragment : Fragment() {
 
 
 
-        viewModel.imgSrc.observe(viewLifecycleOwner, {
-            Log.e(TAG, "onCreateView: ", )
+        viewModel.imgSrc.observe(viewLifecycleOwner) {
             binding.photoEditorView.setImageBitmap(it)
-        })
+        }
 
 
 
@@ -94,6 +93,10 @@ class EditScreenFragment : Fragment() {
 
             override fun rotate() {
                 navigateToRotateFragment()
+            }
+
+            override fun blur() {
+                navigateToBlurFragment()
             }
 
             override fun adjust() {
@@ -179,6 +182,15 @@ class EditScreenFragment : Fragment() {
 
         val action = EditScreenFragmentDirections
             .editScreenFragmentToCropFragment(getNavArgData())
+        findNavController().navigate(action, getSharedElementExtra())
+
+    }
+
+    // Navigating From MainEditScreen to BlurFragment
+    private fun navigateToBlurFragment() {
+
+        val action = EditScreenFragmentDirections
+            .editScreenFragmentToBlurFragment(getNavArgData())
         findNavController().navigate(action, getSharedElementExtra())
 
     }
@@ -285,6 +297,7 @@ class EditScreenFragment : Fragment() {
 interface EditScreenBottomNavigationListener {
     fun crop()
     fun rotate()
+    fun blur()
     fun adjust()
     fun paint()
     fun filter()

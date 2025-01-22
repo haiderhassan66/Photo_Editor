@@ -87,7 +87,7 @@
                     android:gravity="center"
                     app:cardElevation="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/adjust"
+                    app:layout_constraintEnd_toStartOf="@+id/blur"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/crop"
                     app:layout_constraintTop_toTopOf="parent">
@@ -118,6 +118,50 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <!-- Blur  Icon-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/blur"
+                    style="@style/MoreStyleCardView"
+                    android:onClick="@{()->clickListener.blur()}"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/editor_nav_item_speace"
+                    android:gravity="center"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/adjust"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/rotation"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="60"
+                            android:paddingHorizontal="2dp"
+                            android:src="@drawable/ic_blur"
+
+                            />
+
+                        <TextView
+                            style="@style/CustomTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="40"
+                            android:textAlignment="center"
+                            android:gravity="center_horizontal"
+                            android:text="@string/blur" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
 
                 <!-- Adjust Icon-->
                 <androidx.cardview.widget.CardView
@@ -133,7 +177,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/brush"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/rotation"
+                    app:layout_constraintStart_toEndOf="@+id/blur"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <LinearLayout
@@ -303,7 +347,7 @@
 
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_marginStart="@dimen/editor_nav_item_speace"
+                    android:layout_marginHorizontal="@dimen/editor_nav_item_speace"
                     android:gravity="center"
                     app:cardElevation="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"

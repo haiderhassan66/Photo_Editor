@@ -14,6 +14,10 @@
             android:id="@+id/editScreenFragment_to_cropFragment"
             app:destination="@id/cropFragment" />
 
+        <action
+            android:id="@+id/editScreenFragment_to_blurFragment"
+            app:destination="@id/blurFragment" />
+
 
         <action
             android:id="@+id/editScreenFragment_to_filtersFragment"
@@ -293,6 +297,23 @@
         android:name="com.android.demoeditor.screens.DeveloperDetailsFragment"
         android:label="fragment_developer_details"
         tools:layout="@layout/fragment_developer_details" />
+    <fragment
+        android:id="@+id/blurFragment"
+        android:name="com.android.demoeditor.screens.BlurFragment"
+        android:label="fragment_blur"
+        tools:layout="@layout/fragment_blur" >
+        <action
+            android:id="@+id/blurFragment_to_mainEditScreenFragment"
+            app:destination="@id/editScreenFragment_id"
+            app:popUpTo="@id/homeFragment" />
+        <argument
+            android:name="imgData"
+            app:argType="com.android.demoeditor.data.parcelData.CommonParcelData" />
+        <action
+            android:id="@+id/blurFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
 
 
 </navigation>
